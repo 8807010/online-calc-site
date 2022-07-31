@@ -1,4 +1,6 @@
  import {priceFormatter, priceFormatterDecimals} from '../components/formatters.js';
+ import noUiSlider from 'nouislider';
+ import wNumb from 'wNumb';
  
  // инпуты
 const inputCost = document.querySelector('#input-cost');
@@ -50,3 +52,21 @@ const monthPayment = (totalAmount * monthRate) / (1 - (1 + monthRate) * (1 - mon
 totalMonthPayment.innerText = priceFormatterDecimals.format(monthPayment);
 };
 
+const sliderCost = document.getElementById('slider-cost');
+
+noUiSlider.create(sliderCost, {
+    start: 12000000,
+    connect: "lower",
+    tooltips: true,
+    step: 100000, 
+    range: {
+        'min': 0,
+        '50%': [10000000, 1000000],
+        'max': 100000000
+    },
+    format: wNumb({
+      decimals: 0,
+      thousand: ' ',
+      suffix: '',
+    }),
+});
