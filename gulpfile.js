@@ -90,6 +90,15 @@ const svgSprites = () => {
     .pipe(dest(paths.buildImgFolder));
 }
 
+// deploy
+const gulp = require('gulp');
+const ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+    return gulp.src('./build/**/*')
+        .pipe(ghPages());
+});
+
 // scss styles
 const styles = () => {
   return src(paths.srcScss, { sourcemaps: !isProd })

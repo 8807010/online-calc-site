@@ -3,7 +3,7 @@ import {percentFormatter} from "./formatters.js";
 console.log(percentFormatter.format(0.567));
 
 // ставки по ипотеке
-const programBase = 0.12;
+const programBase = 0.09;
 const programIt = 0.047;
 const programGov = 0.067;
 const programZero = 0.108;
